@@ -257,3 +257,19 @@ lstrip()
 swapcase()	
 istitle()	
 rpartition()
+
+
+# IMPORT FROM SMARTSHEET INTEGER STRINGS CONVERTED TO FLOATS FIX
+# EXAMPLE 12676434.0
+
+# TEST DATAFRAME
+temp = pd.DataFrame({'A': 'foo bar foo'.split(),
+                   'B': 'one one two'.split(),
+                   'C': [1212121.0,'123321MNSF332',787281213.0]
+                     })
+                     
+temp['C'] = temp.apply(lambda x: convert_float(x['C']), axis=1)
+print(temp)
+
+temp['C'] = temp['C'].astype(str)
+print(temp)
