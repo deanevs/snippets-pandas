@@ -273,3 +273,10 @@ print(temp)
 
 temp['C'] = temp['C'].astype(str)
 print(temp)
+
+
+# Making one column cell = to another column value if it is Nan
+#Python
+#Col 1 = where you want the values replaced
+#Col 2 = where you want to take the values from
+df["Col 1"].fillna(df["Col 2"], inplace=True)
